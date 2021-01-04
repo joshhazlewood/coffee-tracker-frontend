@@ -1,7 +1,9 @@
-import { Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
 export function Espresso() {
   return (
-    <Typography variant="h1">Espresso</Typography>
+    <Container maxWidth="sm">
+      <Typography variant="h3">Espresso</Typography>
+    </Container>
   );
 }
