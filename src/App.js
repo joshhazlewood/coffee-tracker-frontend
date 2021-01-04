@@ -1,12 +1,12 @@
+import "@fontsource/roboto";
 import React from "react";
-import { Navbar } from "./components/navbar.js";
 import "./App.css";
-import "@fontsource/roboto"
+import { NavContainer } from "./components/NavContainer.js";
 
 function App() {
   return (
     <React.Fragment>
-      <Navbar/>
+      <NavContainer/>
     </React.Fragment>
   );
 }
