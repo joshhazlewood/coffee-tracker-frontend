@@ -1,48 +1,68 @@
-import { Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import { Avatar, Grid, Typography } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import LocalCafeIcon from "@material-ui/icons/LocalCafe";
 import React from "react";
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    maxWidth: 1000,
   },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
+  titleRow: {
+    display: "flex",
   },
 });
 
-export function BeanCard() {
+export function BeanCard({beans}) {
   const classes = useStyles();
   return (
-      <Card className={classes.root} variant="outlined">
-        <CardContent>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Word of the Day
-          </Typography>
-          <Typography variant="h5" component="h2"></Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Beans More</Button>
-        </CardActions>
-      </Card>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+        <Grid container xs={12}>
+          <Grid item xs={2} sm={2}>
+            <Avatar src="/coffee-beans.jpg" />
+          </Grid>
+          <Grid item xs={10} sm={10}>
+            <Grid item>
+              <Typography variant="h5" component="h5" >
+                {beans.name}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography
+                className={classes.roasteryLabel}
+                variant="subtitle2"
+                color="textSecondary"
+              >
+                {beans.roastery}
+              </Typography>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container xs={12}>
+          <Grid item xs={1}>
+            <LocationOnIcon />
+          </Grid>
+          <Grid item xs={11}>
+            <Typography component="h6">
+            {beans.countryOfOrigin}
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container xs={12}>
+          <Grid item xs={1}>
+            <LocalCafeIcon />
+          </Grid>
+          <Grid item xs={11}>
+            <Typography component="h6">
+            {beans.cupProfile}
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
   );
 }
