@@ -14,16 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, initalQuantity, currentQuantity) {
-  return { name, initalQuantity, currentQuantity };
-}
-
-const rows = [
-  createData("Ancoats", 250, 18),
-  createData("Atkinsons", 250, 150),
-];
-
-export function BeanTable() {
+export function BeanTable({beans}) {
   const classes = useStyles();
 
   return (
@@ -37,13 +28,13 @@ export function BeanTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {beans.map((bean) => (
+            <TableRow key={bean.name}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {bean.name}
               </TableCell>
-              <TableCell align="right">{row.initalQuantity}</TableCell>
-              <TableCell align="right">{row.currentQuantity}</TableCell>
+              <TableCell align="right">{bean.initialQuantity}</TableCell>
+              <TableCell align="right">{bean.currentQuantity}</TableCell>
             </TableRow>
           ))}
         </TableBody>

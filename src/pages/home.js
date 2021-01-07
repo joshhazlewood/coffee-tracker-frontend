@@ -2,7 +2,7 @@ import { Container, Typography } from "@material-ui/core";
 
 export function Home() {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="lg">
       <Typography variant="h1">Home</Typography>
     </Container>
   );
