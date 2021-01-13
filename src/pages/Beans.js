@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@material-ui/core";
-import { BeanCard } from "../components/BeanCard.js";
 import React from "react";
+import { BeanCard } from "../components/BeanCard.js";
 
 export function Beans({beans}) {
   return (
