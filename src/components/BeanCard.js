@@ -52,7 +52,7 @@ export function BeanCard({beans}) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid container xs={12}>
+        <Grid container >
           <Grid item xs={1}>
             <LocalCafeIcon />
           </Grid>

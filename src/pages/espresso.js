@@ -3,6 +3,7 @@ import EspressoShotCard from "../components/EspressoShotCard";
 
 const shots = [
   {
+    id: 1,
     name: "Pacamara Natural",
     inputWeight: 18,
     outputWeight: 36,
@@ -12,6 +13,7 @@ const shots = [
     notes: "Well balanced shot. Small amount of channelling.",
   },
   {
+    id: 2,
     name: "Kinini AA",
     inputWeight: 18.5,
     outputWeight: 33,
@@ -30,8 +32,8 @@ export function Espresso() {
       </Typography>
       <Grid container spacing={2}>
         {shots.map((shot) => (
-          <Grid item xs={12}>
-            <EspressoShotCard shot={shot} />
+          <Grid item xs={12} key={shot.id}>
+            <EspressoShotCard shot={shot}/>
           </Grid>
         ))}
       </Grid>
