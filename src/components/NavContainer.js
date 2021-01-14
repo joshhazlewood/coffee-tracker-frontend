@@ -57,18 +57,21 @@ const useStyles = makeStyles((theme) => ({
 
 const beanData = [
   {
+    id: 1,
     name: "Pacamara Natural",
     roastery: "Atkinsons Coffee",
     countryOfOrigin: "Ethiopia",
     cupProfile: "Papaya / Kirsch / Mango",
   },
   {
+    id: 2,
     name: "Bethlehem",
     roastery: "Atkinsons Coffee",
     countryOfOrigin: "Colombia",
     cupProfile: "Satsuma / Blackcurrent / Walnut",
   },
   {
+    id: 3,
     name: "San Lorenzo",
     roastery: "Atkinsons Coffee",
     countryOfOrigin: "Costa Rica",
@@ -79,18 +82,21 @@ const beanData = [
 const bagData = [
   {
     name: "Pacamara Natural",
+    roastDate: Date.now(),
     initialQuantity: 250,
     currentQuantity: 18,
   },
   {
     name: "Bethlehem",
+    roastDate: Date.now(),
     initialQuantity: 250,
-    currentQuantity: 18,
+    currentQuantity: 250,
   },
   {
     name: "San Lorenzo",
+    roastDate: Date.now(),
     initialQuantity: 250,
-    currentQuantity: 18,
+    currentQuantity: 160,
   },
 ];
 

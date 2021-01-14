@@ -8,31 +8,25 @@ import TableRow from "@material-ui/core/TableRow";
 import { format } from "date-fns";
 import React from "react";
 
-export default function BeanTable({ beans }) {
-  const formatDate = (date) => {
-    return format(date, "d/MM/yy");
-  };
-
+export default function BeanArchiveTable({archivedBeans}) {
   return (
     <TableContainer component={Paper}>
-      <Table size="small" aria-label="current beans table">
+      <Table size="small" aria-label="beans-archive-able">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="center">Remaining&nbsp;(g)</TableCell>
             <TableCell align="center">Bag size&nbsp;(g)</TableCell>
             <TableCell align="center">Roasted</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {beans.map((bean) => (
-            <TableRow key={bean.name}>
+          {archivedBeans.map((beans) => (
+            <TableRow key={beans.name}>
               <TableCell component="th" scope="row">
-                {bean.name}
+                {beans.name}
               </TableCell>
-              <TableCell align="center">{bean.currentQuantity}</TableCell>
-              <TableCell align="center">{bean.initialQuantity}</TableCell>
-              <TableCell align="center">{formatDate(bean.roastDate)}</TableCell>
+              <TableCell align="center">{beans.initialQuantity}</TableCell>
+              <TableCell align="center">{format(beans.roastDate, "d/MM/yy")}</TableCell>
             </TableRow>
           ))}
         </TableBody>
