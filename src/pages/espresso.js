@@ -1,42 +1,54 @@
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Fab, Grid, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import AddIcon from "@material-ui/icons/Add";
+import { useState } from "react";
+import EspressoForm from "../components/EspressoForm";
 import EspressoShotCard from "../components/EspressoShotCard";
 
-const shots = [
-  {
-    id: 1,
-    name: "Pacamara Natural",
-    inputWeight: 18,
-    outputWeight: 36,
-    duration: 25,
-    timestamp: new Date(),
-    grindSetting: 4,
-    notes: "Well balanced shot. Small amount of channelling.",
+const useStyles = makeStyles((theme) => ({
+  fab: {
+    position: "absolute",
+    backgroundColor: "#3E3228",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
-  {
-    id: 2,
-    name: "Kinini AA",
-    inputWeight: 18.5,
-    outputWeight: 33,
-    duration: 29,
-    timestamp: new Date(),
-    grindSetting: 3,
-    notes: "Well balanced shot. No channelling.",
-  },
-];
+}));
 
-export function Espresso() {
+export function Espresso({ shots, setShots }) {
+  const classes = useStyles();
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Container maxWidth="md">
       <Typography variant="h4" gutterBottom>
         Espresso Shots
       </Typography>
+      <Fab
+        color="primary"
+        className={classes.fab}
+        aria-label="add"
+        onClick={() => handleClickOpen()}
+      >
+        <AddIcon />
+      </Fab>
       <Grid container spacing={2}>
-        {shots.map((shot) => (
-          <Grid item xs={12} key={shot.id}>
-            <EspressoShotCard shot={shot}/>
-          </Grid>
-        ))}
+        {shots &&
+          shots.map((shot) => (
+            <Grid item xs={12} key={shot.id}>
+              <EspressoShotCard shot={shot} />
+            </Grid>
+          ))}
       </Grid>
+      <EspressoForm open={open} handleClose={handleClose} setShots={setShots} />
     </Container>
   );
 }
