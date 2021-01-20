@@ -10,7 +10,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import clsx from "clsx";
 import { useState } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import { AppBarWrapper } from "../components/AppBarWrapper";
+import { AppBarWrapper } from "./AppBarWrapper";
 import { Beans } from "../pages/Beans";
 import { Coffee } from "../pages/Coffee";
 import { Espresso } from "../pages/Espresso";
@@ -123,7 +123,7 @@ const shotData = [
   },
 ];
 
-export function NavContainer() {
+export function AppContainer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
