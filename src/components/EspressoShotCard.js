@@ -37,6 +37,13 @@ export default function EspressoShotCard({ shot }) {
     return "1 : " + ratio;
   };
 
+  const trimTrailingZero = (num) => {
+    if (num.toString().endsWith(".0")) {
+      return num.substring(0, num.length - 2);
+    }
+    return num;
+  };
+
   return (
     <Card variant="outlined" className={classes.root}>
       <CardContent>
@@ -63,10 +70,10 @@ export default function EspressoShotCard({ shot }) {
           <Grid item xs={12} sm={3}>
             <Typography variant="subtitle1" className={classes.margin}>
               {" "}
-              {shot.inputWeight}
+              {trimTrailingZero(shot.inputWeight)}
               <small>g</small>{" "}
               <ArrowRightAltIcon style={{ verticalAlign: "middle" }} />{" "}
-              {shot.outputWeight}
+              {trimTrailingZero(shot.outputWeight)}
               <small>g</small>
             </Typography>
           </Grid>
